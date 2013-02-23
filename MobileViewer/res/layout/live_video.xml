@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/lv_view_desktop"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/lv_prev_channel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="action_prev_channel"
+                android:src="@drawable/prev" />
+
+            <ImageButton
+                android:id="@+id/lv_next_channel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="action_next_channel"
+                android:src="@drawable/next" />
+        </LinearLayout>
+
+    </LinearLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Dynamas行動檢視器</string>
+    
+    <string name="IA_S_ConnectionName">連線名稱</string>
+    <string name="IA_S_IPAddress">IP位址/識別名稱</string>
+    <string name="IA_S_UserName">使用者名稱</string>
+    <string name="IA_S_Password">密碼</string>
+    <string name="IA_S_Connect">連線</string>
+    
+    <string name="Str_Connecting">連線中...</string>
+    <string name="Str_Disconnected">連線已中斷</string>
+    
+    <string name="Str_Startchannel">開動影像通道</string>
+    <string name="Str_failed">失敗</string>
+    
+    <string name="Str_Loginfailed">遠端登入失敗</string>
+    
+    <string name="ApplicationCharset">big5</string>    
+</resources>

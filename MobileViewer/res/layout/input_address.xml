@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/IA_TV_ConnectionName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IA_S_ConnectionName" />
+
+    <EditText
+        android:id="@+id/IA_ET_ConnectionName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:singleLine="true" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/IA_TV_IPAddr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IA_S_IPAddress" />
+
+    <EditText
+        android:id="@+id/IA_ET_IPAddr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textUri"
+        android:singleLine="true" />
+    <TextView
+        android:id="@+id/IA_TV_UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IA_S_UserName" />
+
+    <EditText
+        android:id="@+id/IA_ET_UserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:singleLine="true" />
+
+    <TextView
+        android:id="@+id/IA_TV_Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/IA_S_Password" />
+
+    <EditText
+        android:id="@+id/IA_ET_Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:singleLine="true" />
+
+    <Button
+        android:id="@+id/IA_B_Connect"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:onClick="action_connect"
+        android:text="@string/IA_S_Connect" />
+
+</LinearLayout>

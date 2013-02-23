@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Dynamas Mobile Viewer</string>
+
+    <string name="IA_S_ConnectionName">Connection Name</string>
+    <string name="IA_S_IPAddress">IP Address/Id Name</string>
+    <string name="IA_S_UserName">User Name</string>
+    <string name="IA_S_Password">Password</string>
+    <string name="IA_S_Connect">Connect</string>
+    
+    <string name="Str_Connecting">Connecting...</string>
+    <string name="Str_Disconnected">Disconnected</string>
+    <string name="Str_Startchannel">Start video channel</string>
+    <string name="Str_failed">failed</string>
+    
+    <string name="Str_Loginfailed">Remote login failed</string>
+        
+    <string name="ApplicationCharset">utf-8</string>
+</resources>

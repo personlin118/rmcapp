@@ -812,7 +812,7 @@ public class LiveVideoActivity extends Activity implements Runnable {
 class LiveAudioPlayer implements Runnable{
     private static final String DTag = "LAP";
 	private LiveVideoSurfaceView viewer = null;
-	private List<byte []> samples = new ArrayList<byte []>();
+	private List<short []> samples = new ArrayList<short []>();
 	private boolean running_flag = true;
 	int audio_bufsize;
 	AudioTrack audio_track_player = null;
@@ -833,13 +833,12 @@ class LiveAudioPlayer implements Runnable{
 	
     public void run() {
 		Log.d(DTag, "init AudioTrack...");
-		short[] out_audio_buffer = new short[8000];
 		audio_bufsize = AudioTrack.getMinBufferSize(8000, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT);
 		audio_track_player = new AudioTrack(AudioManager.STREAM_MUSIC, 8000, AudioFormat.CHANNEL_OUT_MONO, AudioFormat.ENCODING_PCM_16BIT, audio_bufsize, AudioTrack.MODE_STREAM);
 		audio_track_player.play();
 		while(running_flag)
 		{
-			byte[] data = null;
+			short[] data = null;
 			synchronized(samples) {
 				if(samples.size() > 0)
 				{
@@ -850,13 +849,9 @@ class LiveAudioPlayer implements Runnable{
 			}
 			if(data != null)
 			{
-				long start = System.currentTimeMillis();
-				//int data_len = AudioCodec.DecodeADPCM(data, 48, out_audio_buffer, 8000);
-				int data_len = decodeAdpcm(data, 48, out_audio_buffer);
+				int data_len = data.length;
 				if(data_len > 0)
-					audio_track_player.write(out_audio_buffer, 0, data_len);				
-				long end = System.currentTimeMillis();
-				Log.d(DTag, "idx="+data[0]+", decode len="+data_len+"bytes, Execution time was "+(end-start)+" ms.");
+					audio_track_player.write(data, 0, data_len);				
 				data = null;
 			}
 			else
@@ -879,10 +874,18 @@ class LiveAudioPlayer implements Runnable{
         synchronized(samples) {
 			if(samples.size() <= 200)
 			{
+				short[] out_audio_buffer = new short[8000];
 				//samples.add(sample.clone());
-				byte[] tmp = Arrays.copyOfRange(sample, 0, size);
-				tmp[0] = sequrence;
-				samples.add(tmp);
+				long start = System.currentTimeMillis();
+				//int data_len = AudioCodec.DecodeADPCM(sample, 48, out_audio_buffer, 8000);
+				int data_len = decodeAdpcm(sample, 48, out_audio_buffer);
+				data_len /= 2;
+				long end = System.currentTimeMillis();
+				Log.d(DTag, "decode len="+data_len+"bytes, Execution time was "+(end-start)+" ms.");
+				if(data_len > 0)
+				{
+					samples.add(Arrays.copyOfRange(out_audio_buffer, 0, data_len));
+				}
 			}
 			else
 			{
